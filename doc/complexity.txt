@@ -1,0 +1,35 @@
+*complexity.txt*  Complexity Plugin for Neovim
+
+complexity.txt - Plugin Documentation
+===========================================
+Plugin name: complexity
+Version: 1.0
+Author: 4DRIAN0RTIZ
+
+*complexity*
+
+Introduction
+============
+This plugin displays the Cyclomatic Complexity of each function in the current buffer. It uses the `get_cyclomatic_complexity` function to calculate the complexity with lizard.
+
+Configuration
+=============
+*complexity-config*
+
+The default configuration of the plugin is as follows:
+
+>
+{
+  thresholds = {
+    low = 10,     -- CCN <= low is considered low complexity
+    medium = 15,  -- CCN > low and <= medium is medium complexity
+    -- CCN > medium is high complexity
+  },
+
+  virt_prefix = "⮕ CCN:", -- text prefix for virtual text
+  virt_pos = "eol", -- extmark position ("eol" or "overlay")
+
+  autosave = false, -- set true to annotate on BufWritePost
+  autosave_patterns = { "*.php" }, -- file patterns to trigger autosave
+}
+<
